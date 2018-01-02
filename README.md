@@ -1,1 +1,1 @@
-HTML-Project: simple HTML application using HTML, CSS, JavaScript technologies.
+HTML-Project: basic HTML5 application using CSS & JavaScript technologies.
