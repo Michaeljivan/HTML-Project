@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Salary Wizard</title>
+</head>
+<body>
+
+	<div>
+		<div>
+			<fieldset>
+				
+					<label>Hourly Rate </label><input type="number" id="rate">
+					<label>Hours in a Week </label><input type="number" id="hweek">
+					<label>Number # of Weeks worked </label><input type="number" id="weeks">
+					<label>Income Tax % </label><input type="number" step="0.01" id="itax">
+					<input type="submit" onclick="calculate()" style="width: 205px;" />
+					<br>
+					<div style="text-align: center;">
+							<label id="amount_monthly"></label><br>
+							<label id="amount_yearly"></label>
+					</div>
+				
+			</fieldset>
+
+			
+			
+		</div>
+	</div>
+
+</body>
+</html>
+<style type="text/css">
+	body{
+		background-color: #fdcb6e;
+		background-image: url("salary.jpeg");
+	}
+	input{
+		width: 75px;
+		height: 25px;
+	}
+
+	label{
+		font-family: Comic Sans ms;
+		font-size: 15px;
+	}
+
+	#submit{
+		width: 250px;
+	}
+	
+</style>
+
+<script type="text/javascript">
+	
+	function calculate(){
+		//alert("submit was pressed");
+		var rate  = parseInt(document.getElementById("rate").value);
+		console.log("Rate: " + rate);
+		var hweek = parseInt(document.getElementById("hweek").value);
+		console.log("Hrs Week: " + hweek);
+		var weeks = parseInt(document.getElementById("weeks").value);
+		console.log("Weeks: " + weeks);
+		var tax  = document.getElementById("itax").value;
+		console.log("Tax: " + tax);
+		
+
+		var raw_total = (rate * hweek) * weeks;
+		console.log("Raw Total: " + raw_total);
+		var final_total = raw_total - (raw_total* tax);
+		console.log("Final Total: " + final_total);
+		document.getElementById("amount_monthly").innerHTML = "Monthly $ " + final_total;
+		document.getElementById("amount_yearly").innerHTML = "Annually $ " + final_total * 12;
+		
+	}
+</script>
