@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<!-- T3 Tool developed by Michael Jivan-->
+<head>
+	<title>L10 Metric Tool</title>
+	<h1 style="font-family: Arial; text-align: center;"> Luxer One L10 - T3</h1>
+	<h3 style="font-family: Arial; text-align: center;"> Calls Answered/Answer Rate Calculator </h3>
+</head>
+
+<body>
+	<div id="content">
+		<label style="font-family: Arial">Total Calls Answered</label>	
+		<input id="calls" name="calls" type="text"><br>
+		
+		<label style="font-family: Arial";>Total Calls Missed</label>		
+		<input id="missed" name="missed" type ="text"><br>
+		
+		<div id="buttons">
+			<button onclick="compute()">Get Results</button><br>
+			<button onclick="reset()">Reset</button>
+		</div>
+
+		<p id="call-total"></p>
+		<p id="call-missed-total"></p>
+		<p id="call-ans-percentage" style=" color: green;"></p>
+		<p id="call-miss-percentage" style="color: red;"></p>
+
+	</div>
+<body>
+
+
+</html>
+
+<script>
+function compute(){
+	var calls = document.getElementById("calls").value;
+	var missed = document.getElementById("missed").value;
+	var ans_rate = (parseInt(calls) / (parseInt(calls) + parseInt(missed))) * 100;
+	var missed_rate = 100.00 - ans_rate;
+
+	document.getElementById("call-total").innerHTML = "Total Calls  " + calls;
+	document.getElementById("call-missed-total").innerHTML = "Total Missed  " + missed;
+	document.getElementById("call-ans-percentage").innerHTML = "Answer Rate  " + ans_rate.toFixed(2)+"%";
+	document.getElementById("call-miss-percentage").innerHTML = "Missed  " + missed_rate.toFixed(2)+"%";
+
+
+}
+
+function reset(){
+	location.reload();
+}
+</script>
+
+<style type="text/css">
+	body{
+		background-color: #f1c40f;
+	}
+
+	button{
+		width: 200px;
+		height: 28px;
+	}
+	input{
+		text-align: center;
+		height: 32px;
+		font-size: 14px;
+	}
+
+	#content{
+		display: flex;
+		align-items: center;
+		flex-direction: column; 
+	}
+
+	#buttons{
+		display: flex;
+		flex-direction: inline;
+	}
+</style>
