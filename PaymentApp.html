@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment Calculator</title>
+</head>
+<body>
+	<div class="content">
+		
+		<label>Payment Due</label>
+		<input type="number" name="payment" id="payment">
+		<br/><br/>
+		
+		<label>Payment Duration</label>
+		<select id="months">
+			<option>Select Duration</option>
+			<option value="1">1 Month</option>
+			<option value="2">2 Months</option>
+			<option value="3">3 Months</option>
+			<option value="4">4 Months</option>
+			<option value="5">5 Months</option>
+			<option value="6">6 Months</option>
+			<option value="7">7 Months</option>
+			<option value="8">8 Months</option>
+			<option value="9">9 Months</option>
+			<option value="10">10 Months</option>
+			<option value="11">11 Months</option>
+			<option value="12">12 Months</option>
+		</select>
+		<br/><br/>
+		<div class="buttons">
+			<button onclick="algorithm()">Ok</button>
+			<button onclick="reload()">Resest</button>
+		</div>
+		<br/>
+
+
+		<div style="text-align: center;">
+			<label id="monthly-payment"></label>
+		</div>
+	</div>
+
+
+	
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+	function algorithm(){
+		var payment = document.getElementById("payment").value;
+		var months = document.getElementById("months").value
+		console.log("Payment: " + payment);
+		console.log("Months: " + months);
+		var monthly = payment/months;
+		console.log("Monthly Payment: " + monthly);
+
+
+		document.getElementById("monthly-payment").innerHTML = "$ " + Math.floor(monthly);
+	}
+
+	function reload(){
+		location.reload();
+	}
+</script>
+
+<style type="text/css">
+	body{
+	  display: flex;
+	  height: 100vh;
+	  justify-content: center;
+	  align-items: center;
+	  background: #2980b9;
+	  font-family: Raleway;
+	  color: white;
+	  letter-spacing: 1px;
+	}	
+
+	.content{
+		padding: 25px;
+		background-color: #e67e22;
+		border-radius: 5px;
+	}
+
+	button{
+		width: 100%;
+	}	
+
+	input{
+		width: 150px;
+	}
+
+	label{ 
+		font-family: Arial;
+		font-size: 14px;
+	}
+
+	.buttons{
+		display: flex;
+		flex-direction: inline;
+	}
+</style>
