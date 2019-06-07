@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body id="bod">
+
+
+	<div id="menu" class="">
+		<p>Some Text here...</p>
+		<p>Some Text here...</p>
+		<p>Some Text here...</p>
+		<p>Some Text here...</p>
+	</div>
+	<button onclick="triggerNightMode()">Night Mode</button>
+
+
+</body>
+</html>
+
+<style type="text/css">
+	.night-mode{
+		/*border: solid;*/
+		background-color: black;
+		color: white;
+		
+	}
+	button{
+		width: 200px;
+		height: 75px;
+	}
+</style>
+
+<script type="text/javascript">
+	function triggerNightMode(){
+		console.log("Pressed");
+		document.getElementById("menu").classList.toggle("night-mode");
+		document.getElementById("bod").classList.toggle("night-mode");
+	}
+</script>
